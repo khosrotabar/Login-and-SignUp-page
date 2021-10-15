@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html data-wf-page="6005d96c23d866df34f61d5m">
+
+<head>
+    <meta charset="utf-8" />
+    <title>login test</title>
+    <meta content="this is a login test page with php and html" name="description" />
+    <meta content="login test with php" property="og:title" />
+    <meta content="this is a login test page with php and html" property="og:description" />
+    <meta content="login test with php" property="twitter:title" />
+    <meta content="this is a login test page with php and html" property="twitter:description" />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Webflow" name="generator" />
+    <link href="css/login-test-1.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="images/logo.png">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+    <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+    <script>
+        var firstname_cookie = getCookie("FirstName");
+        var lastname_cookie = getCookie("LastName");
+        var password_cookie = getCookie("Password");
+        var mobilenumber_cookie = getCookie("MobileNumber");
+        var nationalcode_cookie = getCookie("NationalCode");
+        var birthday_cookie = getCookie("Birthdate");
+        var address_cookie = getCookie("Address");
+        var job_cookie = getCookie("Job");
+        if (firstname_cookie != null && firstname_cookie != "" && lastname_cookie != null && lastname_cookie != "" &&
+            password_cookie != null && password_cookie != "" && mobilenumber_cookie != null && mobilenumber_cookie !=
+            "" && nationalcode_cookie != null && nationalcode_cookie != "" && birthday_cookie != null &&
+            birthday_cookie != "" && address_cookie != null && address_cookie != "" && job_cookie != null &&
+            job_cookie != "") {
+            window.location.href = "profile";
+        } else {
+            var i = 0;
+        }
+    </script>
+    <script type="text/javascript">
+        ! function (o, c) {
+            var n = c.documentElement,
+                t = " w-mod-";
+            n.className += t + "js",
+                ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+        }(window, document);
+    </script>
+    <style>
+        .emailError2 {
+            color: red;
+            font-size: 14px;
+        }
+
+        .creatAccountSuccess {
+            position: absolute;
+            top: auto;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            width: 350px;
+            height: 150px;
+            background-color: #cdcdcd;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            display: none;
+            text-align: left;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 45px;
+        }
+
+        .creatAccountFail {
+            position: absolute;
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ffdede;
+            font-size: 14px;
+            transition: opacity 500ms ease;
+        }
+
+        .Login_Error2 {
+            position: absolute;
+            width: 100%;
+            display: none;
+            background-color: #ffdede;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 14px;
+            transition: opacity 400ms ease;
+            transform: translateY(-60px);
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width: 991px) {
+            .Login_Error2 {
+                margin-top: -10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="login-container">
+        <div class="login-container-left"></div>
+        <div class="login-container-right">
+            <div class="form-block w-form" id="form-block" style="position: relative;">
+                <div class="Login_Error2" id="Login_Error2"></div>
+                <form id="wf-form-Login-Form" name="wf-form-Login-Form" data-name="Login Form" method="post"
+                    class="form" action="login-test-1-login.php">
+                    <div class="login-form-inputs-container">
+                        <input type="email" class="login-password-field w-input" maxlength="256" name="User-Name"
+                            data-name="User Name" placeholder="Email" id="User-Name" required="" />
+                        <input type="password" class="login-username-field w-input" minlength="8" maxlength="256"
+                            name="Password" data-name="Password" placeholder="Password" id="Password" required="" />
+                    </div>
+                    <input type="submit" value="SIGN IN" data-wait="Please wait..." class="login-button w-button" />
+                </form>
+                <div class="forgot-link-container">
+                    <div class="forgot-text">forgot</div>
+                    <a data-w-id="aeef65bf-c625-63d1-b4d6-d432a3a0c68b" href="#" class="forgot-link"
+                        onclick="remove_login_error2()">User name /
+                        Password</a>
+                </div>
+            </div>
+            <div class="sign-up-link-container" id="sign-up-link-container">
+                <a data-w-id="3c04c79c-61e9-e959-b4ff-b04061d8c17c" href="#" class="sign-up-link"
+                    onclick="remove_login_error2()">SIGN UP</a>
+            </div>
+            <div class="form-block-2 w-form" id="form-block-2">
+                <form id="wf-form-Sign-Up-Form" name="wf-form-Sign-Up-Form" data-name="Sign Up Form" method="post"
+                    class="form-2" action="login-test-1.php">
+                    <div class="columns-2 w-row" id="columns-2">
+                        <div class="column w-col w-col-6">
+                            <label for="First-Name">First Name</label>
+                            <input type="text" class="text-field-4 w-input" maxlength="256" name="First-Name"
+                                data-name="First Name" placeholder="Enter your first name" id="First-Name"
+                                required="" />
+                        </div>
+                        <div class="column-2 w-col w-col-6">
+                            <label for="Last-Name">Last Name</label>
+                            <input type="text" class="text-field-5 w-input" maxlength="256" name="Last-Name"
+                                data-name="Last Name" placeholder="Enter your last name" id="Last-Name" required="" />
+                        </div>
+                    </div>
+                    <div class="columns w-row" id="columns">
+                        <div class="column-3 w-col w-col-5">
+                            <label for="Password-2">Password</label>
+                            <input type="password" class="text-field w-input" minlength="8" maxlength="256"
+                                name="Password" data-name="Password" placeholder="at least 8 digits" id="Password-2"
+                                required="" />
+                        </div>
+                        <div class="column-4 w-col w-col-7">
+                            <label for="Mobile-Number">Mobile Number</label>
+                            <input type="tel" class="text-field-3 w-input" maxlength="256" name="Mobile-Number"
+                                data-name="Mobile Number" placeholder="e.g. 09135556667" id="Mobile-Number"
+                                required="" />
+                        </div>
+                    </div>
+                    <div class="div-block-3" id="div-block-3">
+                        <label for="Email">Email</label>
+                        <input type="email" class="text-field-2 w-input" maxlength="256" name="Email" data-name="Email"
+                            placeholder="Enter your email address" id="Email" required=""
+                            oninput="clear_email_error2()" />
+                        <p class="emailError2" id="emailError2"></p>
+                    </div>
+                    <input type="submit" value="SIGN UP" data-wait="Please wait..." class="submit-button w-button"
+                        id="submit-button" onclick="clear_cookie()" />
+                </form>
+                <div class="div-block-4" id="div-block-4">
+                    <div class="text-block">You have already account </div>
+                    <a data-w-id="Text Link" href="#" class="link" onclick="remove_acountFail_signUp_msg()">Sign In</a>
+                </div>
+                <div class="creatAccountFail" id="creatAccountFail"></div>
+            </div>
+            <div class="form-block-3 w-form">
+                <form id="email-form" name="email-form" data-name="Email Form" class="form-3 same-class-free-password"
+                    action="forgot_password_email.php" method="POST">
+                    <input type="email" class="text-field-6 w-input" maxlength="256" name="email-for-change-password"
+                        data-name="email for change password" placeholder="please enter your email"
+                        id="email-for-change-password" required="" />
+                    <input type="submit" value="Submit" data-wait="Please wait..." class="submit-button-2 w-button" />
+                    <div class="div-block-5">
+                        <a data-w-id="Text Link 2" href="#" class="link-2">Back to login page</a>
+                    </div>
+                </form>
+            </div>
+            <div class="creatAccountSuccess" id="creatAccountSuccess"></div>
+        </div>
+    </div>
+    <script>
+        var text1 = getCookie("creatAccountSuccess");
+        if (text1 != null && text1 != "") {
+            document.getElementById("form-block").style.display = "none";
+            document.getElementById("sign-up-link-container").style.display = "none";
+            document.getElementById("creatAccountSuccess").innerHTML = text1;
+            document.getElementById("creatAccountSuccess").style.display = "block";
+        }
+
+        var text2 = getCookie("creatAccountFail");
+        if (text2 != null && text2 != "") {
+            document.getElementById("form-block").style.display = "none";
+            document.getElementById("sign-up-link-container").style.display = "none";
+            document.getElementById("sign-up-link-container").style.opacity = "0";
+            document.getElementById("form-block-2").style.display = "block";
+            document.getElementById("columns-2").style.opacity = "1";
+            document.getElementById("columns").style.opacity = "1";
+            document.getElementById("div-block-3").style.opacity = "1";
+            document.getElementById("submit-button").style.opacity = "1";
+            document.getElementById("div-block-4").style.opacity = "1";
+            document.getElementById("creatAccountFail").innerHTML = text2;
+            document.getElementById("creatAccountFail").style.display = "block";
+        }
+
+        var text3 = getCookie("emailError2");
+        if (text3 != null && text3 != "") {
+            document.getElementById("form-block").style.display = "none";
+            document.getElementById("sign-up-link-container").style.display = "none";
+            document.getElementById("sign-up-link-container").style.opacity = "0";
+            document.getElementById("form-block-2").style.display = "block";
+            document.getElementById("columns-2").style.opacity = "1";
+            document.getElementById("columns").style.opacity = "1";
+            document.getElementById("div-block-3").style.opacity = "1";
+            document.getElementById("submit-button").style.opacity = "1";
+            document.getElementById("div-block-4").style.opacity = "1";
+            document.getElementById("emailError2").innerHTML = text3;
+        }
+
+        var text4 = getCookie("Login_Error2");
+        if (text4 != null && text4 != "") {
+            document.getElementById("Login_Error2").innerHTML = text4;
+            document.getElementById("Login_Error2").style.backgroundColor = "#ffdede";
+            document.getElementById("Login_Error2").style.display = "block";
+        }
+
+        var text5 = getCookie("verify_msg");
+        if (text5 != null && text5 != "") {
+            document.getElementById("Login_Error2").innerHTML = text5;
+            document.getElementById("Login_Error2").style.backgroundColor = "#ade2b9";
+            document.getElementById("Login_Error2").style.display = "block";
+            setCookie("verify_msg", "");
+            setTimeout(verify_msg_opacity, 3000);
+        }
+
+        function verify_msg_opacity() {
+            document.getElementById("Login_Error2").style.opacity = "0";
+            setTimeout(verify_msg_display, 3100);
+        }
+
+        function verify_msg_display() {
+            document.getElementById("Login_Error2").style.display = "none";
+        }
+
+        var text6 = getCookie("resend_password_msg");
+        if (text6 != null && text6 != "") {
+            document.getElementById("Login_Error2").innerHTML = text6;
+            document.getElementById("Login_Error2").style.backgroundColor = "#ade2b9";
+            document.getElementById("Login_Error2").style.display = "block";
+            setCookie("resend_password_msg", "");
+            setTimeout(resend_password_msg_opacity, 3000);
+        }
+
+        function resend_password_msg_opacity() {
+            document.getElementById("Login_Error2").style.opacity = "0";
+            setTimeout(resend_password_msg_display, 3100);
+        }
+
+        function resend_password_msg_display() {
+            document.getElementById("Login_Error2").style.display = "none";
+        }
+
+        var text7 = getCookie("resend_password_msg_fail");
+        if (text7 != null && text7 != "") {
+            document.getElementById("Login_Error2").innerHTML = text7;
+            document.getElementById("Login_Error2").style.backgroundColor = "#ffdede";
+            document.getElementById("Login_Error2").style.display = "block";
+            setCookie("resend_password_msg_fail", "");
+            setTimeout(resend_password_msg_fail_opacity, 3000);
+        }
+
+        function resend_password_msg_fail_opacity() {
+            document.getElementById("Login_Error2").style.opacity = "0";
+            setTimeout(resend_password_msg_fail_display, 3100);
+        }
+
+        function resend_password_msg_fail_display() {
+            document.getElementById("Login_Error2").style.display = "none";
+        }
+
+        function clear_email_error2() {
+            document.getElementById("emailError2").innerHTML = "";
+        }
+
+        function clear_cookie() {
+            setCookie("emailError2", "");
+            setCookie("creatAccountFail", "");
+        }
+
+        function remove_acountFail_signUp_msg() {
+            document.getElementById("creatAccountFail").style.opacity = "0";
+            setTimeout(remove_acountFail_signUp_msg_delay, 1000);
+            setCookie("creatAccountFail", "");
+        }
+
+        function remove_acountFail_signUp_msg_delay() {
+            document.getElementById("creatAccountFail").style.display = "none";
+        }
+
+        function remove_login_error2() {
+            document.getElementById("Login_Error2").style.opacity = "0";
+            setTimeout(remove_Login_Error2_delay, 400);
+            setCookie("Login_Error2", "");
+        }
+
+        function remove_Login_Error2_delay() {
+            document.getElementById("Login_Error2").style.display = "none";
+        }
+
+        /*for just english inputs*/
+        /*var inputs = document.getElementsByClassName("w-input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].setAttribute("oninput", "change_numbers_to_en(this)");
+        }
+
+        let map = {
+            '۰': "0",
+            '۱': "1",
+            '۲': "2",
+            '۳': "3",
+            '۴': "4",
+            '۵': "5",
+            '۶': "6",
+            '۷': "7",
+            '۸': "8",
+            '۹': "9",
+            'ا': "",
+            'ب': "",
+            'پ': "",
+            'ت': "",
+            'ث': "",
+            'ج': "",
+            'چ': "",
+            'ح': "",
+            'خ': "",
+            'د': "",
+            'ذ': "",
+            'ر': "",
+            'ز': "",
+            'ژ': "",
+            'س': "",
+            'ش': "",
+            'ص': "",
+            'ض': "",
+            'ط': "",
+            'ظ': "",
+            'ع': "",
+            'غ': "",
+            'ف': "",
+            'ق': "",
+            'ک': "",
+            'گ': "",
+            'ل': "",
+            'م': "",
+            'ن': "",
+            'و': "",
+            'ه': "",
+            'ی': "",
+            'ي': "",
+        };
+
+        function change_numbers_to_en(el) {
+            el.value = el.value.replace(/[۰۱۲۳۴۵۶۷۸۹ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی]/g, function (match) {
+                return map[match]
+            })
+        }*/
+    </script>
+    <script src="js/jQuery-3.5.1.js" type="text/javascript">
+    </script>
+    <script src="js/login-test-1.js" type="text/javascript"></script>
+    <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+</body>
+
+</html>
